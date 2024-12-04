@@ -20,7 +20,7 @@ resource "google_storage_bucket" "bucket" {
 
   # Add a unique identifier to the bucket name
   //name = "${var.bucket_prefix}-${var.bucket_count + 1}-${random_id.unique_id.hex}"
-  name = "${var.bucket_prefix}-${each.value}-${random_id.unique_id.hex}"
+  name = "${var.bucket_prefix}${each.value + 1}-${random_id.unique_id.hex}"
   
 
   location      = var.location
