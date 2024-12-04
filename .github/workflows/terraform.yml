@@ -39,7 +39,7 @@ jobs:
       with:
         terraform_version: 1.5.6 # Update to your required Terraform version
 
-    - name: Check if user-specific files changed
+    - name: Check if user-specific configuration files have changed
       id: check_changes
       run: |
         echo "Checking if ${USER} configuration files have changed..."
