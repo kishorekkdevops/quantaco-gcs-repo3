@@ -19,7 +19,7 @@ resource "google_storage_bucket" "bucket" {
   //for_each = tomap({for idx in range(var.bucket_count) : idx => tostring(idx)})
 
   # Add a unique identifier to the bucket name
-  name = "${var.bucket_prefix}-${var.bucket_count[count.index]}-${random_id.unique_id.hex}"
+  name = "${var.bucket_prefix}-${var.bucket_count + 1}-${random_id.unique_id.hex}"
 
   location      = var.location
   storage_class = var.storage_class
