@@ -51,12 +51,12 @@ jobs:
       if: env.changed == '0'
       run: |
         # Dynamically generate backend.tf for the user
-        cp "users/${{ matrix.user }}_backend.tf" ./tmp/backend.tf
+        cp "users/${{ matrix.user }}_backend.tf" /tmp/backend.tf
 
     - name: Initialize Terraform for ${{ matrix.user }}
       if: env.changed == '0'
       run: |
-          terraform init -backend-config="./tmp/backend.tf"
+          terraform init -backend-config="/tmp/backend.tf"
         # terraform init
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_QN_KEY}}
